@@ -34,20 +34,20 @@ cd docker-ansible
 
 ## Compilar a imagem com as dependências
 
-``` docker build -t meu_ansible . ```
+``` docker build -t container-ansible . ```
 
 ## Criar aliases para facilitar o uso
 
 Alias para ansible:
 
 ```
-alias ansible="docker run -ti --rm -v ~/.ssh:/root/.ssh -v ~/.aws:/root/.aws -v $(pwd):/apps -w /apps meu_ansible ansible"
+alias ansible="docker run -ti --rm -v ~/.ssh:/root/.ssh -v ~/.aws:/root/.aws -v $(pwd):/apps -w /apps container-ansible ansible"
 ```
 
 Alias para ansible-playbook:
 
 ```
-alias ansible-playbook="docker run -ti --rm -v ~/.ssh:/root/.ssh -v ~/.aws:/root/.aws -v $(pwd):/apps -w /apps meu_ansible ansible-playbook"
+alias ansible-playbook="docker run -ti --rm -v ~/.ssh:/root/.ssh -v ~/.aws:/root/.aws -v $(pwd):/apps -w /apps container-ansible ansible-playbook"
 ```
 
 Dica: adicione os aliases ao arquivo ~/.bashrc ou ~/.zshrc para torná-los permanentes.
