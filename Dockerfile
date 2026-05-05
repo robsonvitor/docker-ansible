@@ -1,7 +1,8 @@
 FROM alpine/ansible:latest
 
 # Instala dependências de compilação e ferramentas de rede
-RUN apk add --no-cache \
+RUN apk update && \
+    apk add --no-cache \
     git \
     openssh-client \
     sshpass \
@@ -11,7 +12,11 @@ RUN apk add --no-cache \
     musl-dev \
     libffi-dev \
     openssl-dev \
-    make
+    make \
+    expat \
+    libxml2 \
+    python3-dev \
+    build-base
 
 # Cria diretório de trabalho
 WORKDIR /ansible
