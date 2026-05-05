@@ -9,15 +9,14 @@ boto3
 botocore
 certifi
 cffi
-charset
 cryptography
 decorator
 google-auth
 gssapi
 idna
 krb5
-netbox-ers
-ntlm
+pynetbox
+ntlm-auth
 openshift
 packaging
 pip
@@ -25,7 +24,6 @@ pycparser
 pykerberos
 pynetbox
 pyspnego
-python
 pytz
 pyvmomi
 pywinrm
@@ -37,5 +35,5 @@ resolvelib
 setuptools
 six
 urllib3
-vapi-client-bindings
 xmltodict
+ansible

@@ -1,4 +1,5 @@
-FROM alpine/ansible:latest
+#FROM alpine/ansible:latest
+FROM python:3.12-alpine
 
 # Instala dependências de compilação e ferramentas de rede
 RUN apk update && \
@@ -16,6 +17,7 @@ RUN apk update && \
     expat \
     libxml2 \
     python3-dev \
+    krb5-dev \
     build-base
 
 # Cria diretório de trabalho
@@ -26,7 +28,7 @@ COPY requirements.yml /tmp/requirements.yml
 COPY requirements.txt /tmp/requirements.txt
 
 # 1. Instala dependências Python via pip
-RUN pip install --no-cache-dir --break-system-packages -r /tmp/requirements.txt
+RUN python3 -m pip install --no-cache-dir --break-system-packages -r /tmp/requirements.txt
 
 # 2. Instala as collections do Ansible Galaxy (sempre na última versão)
 RUN ansible-galaxy collection install -r /tmp/requirements.yml
