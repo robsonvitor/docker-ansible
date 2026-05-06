@@ -41,13 +41,27 @@ cd docker-ansible
 Alias para ansible:
 
 ```
-alias ansible="docker run -ti --rm -v ~/.ssh:/root/.ssh -v ~/.aws:/root/.aws -v $(pwd):/apps -w /apps ansible-img ansible"
+alias ansible='docker run -ti --rm \
+  -u $(id -u):$(id -g) \
+  -e HOME=/tmp \
+  -v ~/.ssh:/tmp/.ssh:ro \
+  -v ~/.aws:/tmp/.aws:ro \
+  -v $(pwd):/apps \
+  -w /apps \
+  ansible-img ansible'
 ```
 
 Alias para ansible-playbook:
 
 ```
-alias ansible-playbook="docker run -ti --rm -v ~/.ssh:/root/.ssh -v ~/.aws:/root/.aws -v $(pwd):/apps -w /apps ansible-img ansible-playbook"
+alias ansible-playbook='docker run -ti --rm \
+  -u $(id -u):$(id -g) \
+  -e HOME=/tmp \
+  -v ~/.ssh:/tmp/.ssh:ro \
+  -v ~/.aws:/tmp/.aws:ro \
+  -v $(pwd):/apps \
+  -w /apps \
+  ansible-img ansible-playbook'
 ```
 
 Dica: adicione os aliases ao arquivo ~/.bashrc ou ~/.zshrc para torná-los permanentes.
